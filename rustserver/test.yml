@@ -2,4 +2,4 @@
 - hosts: all
   tasks:
   - name: "Test if ansible works"
-    shell: touch /opt/test.txt
+    shell: echo "Test" > /opt/test.txt
