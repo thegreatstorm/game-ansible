@@ -1,5 +1,5 @@
 ---
-- hosts
+- hosts: all
   tasks:
-    - name: "Test if ansible works"
+  - name: "Test if ansible works"
     shell: touch /opt/test.txt
