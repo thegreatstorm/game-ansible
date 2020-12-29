@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+  - name: "Check if plugin folder exists"
+    shell: ls /home/game_admin/server/oxide/plugins
+  - name: "Download Oxide Installer"
+    get_url:
+      url: https://umod.org/plugins/{{plugin_name}}.cs
+      dest: /home/game_admin/server/oxide/plugins/{{plugin_name}}.cs
+      mode: '0750'
+      owner: game_admin
