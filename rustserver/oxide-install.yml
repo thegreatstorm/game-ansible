@@ -13,5 +13,9 @@
       src: /home/game_admin/server/oxide_install.zip
       dest: /home/game_admin/server
       remote_src: yes
+  - name: "Change Permission"
+    shell: chmod 775 -R /home/game_admin/server/RustDedicated_Data/
+  - name: "Change Ownership"
+    shell: chown game_admin:game_admin -R /home/game_admin/server/RustDedicated_Data/
   - name: "Starting up rust server"
     shell: runuser -l game_admin -c 'cd /home/game_admin/server/ && nohup ./RustDedicated -batchmode +server.ip 0.0.0.0 +server.port 28015 +server.tickrate 10 +server.hostname "{{hostname}}" +server.identity "{{identity}}" +server.seed {{seed}} +server.maxplayers {{players}} +server.worldsize {{worldsize}} +server.saveinterval 600 +rcon.ip 0.0.0.0 +rcon.port 28016 +rcon.password "{{rcon_password}}" &> /home/game_admin/server/logs/rustserver-services.log &'
