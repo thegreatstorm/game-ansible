@@ -1,0 +1,21 @@
+---
+- hosts: all
+  tasks:
+  - name: "Install prerequisites."
+    shell: yum install glibc.i686 libstdc++.i686 wget -y
+  - name: "Add default user game_admin"
+    shell: adduser game_admin
+  - name: "Add default user game_admin"
+    shell: adduser game_admin
+  - name: "Making directory"
+    shell: mkdir -p /home/game_admin/server/logs /home/game_admin/steam_install
+  - name: "Get Steam CMD Linux"
+    shell: wget -O /home/game_admin/steam_install/steamcmd_linux.tar.gz https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+  - name: "Extract Steam CMD"
+    shell: tar -xf /home/game_admin/steam_install/steamcmd_linux.tar.gz -C /home/game_admin/steam_install/
+  - name: "Remove unneeded space"
+    shell: rm -f /home/game_admin/steam_install/steamcmd_linux.tar.gz
+  - name: "Make sure everything is game_admin"
+    shell: chown -R game_admin:game_admin /home/game_admin
+  - name: "Run Steam CMD for installation as game_admin"
+    shell: runuser -l game_admin -c '/home/game_admin/steam_install/./steamcmd.sh +login anonymous +force_install_dir /home/game_admin/server/ +app_update 258550 -validate +quit'

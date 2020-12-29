@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks:
+  - name: "Update OS"
+    shell: yum update -y
