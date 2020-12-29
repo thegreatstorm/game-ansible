@@ -16,17 +16,17 @@
   - name: "Making directory"
     shell: mkdir -p /home/game_admin/server/logs
   - name: "Create eula.txt"
-      copy:
-        dest: "/home/game_admin/server/eula.txt"
-        content: |
-          eula=true
+    copy:
+      dest: "/home/game_admin/server/eula.txt"
+      content: |
+        eula=true
   - name: "Create eula.txt"
-      copy:
-        dest: "/home/game_admin/server/server.properties"
-        content: |
-          rcon.port=25575
-          rcon.password={{rcon_password}}
-          enable-rcon=true
+    copy:
+      dest: "/home/game_admin/server/server.properties"
+      content: |
+        rcon.port=25575
+        rcon.password={{rcon_password}}
+        enable-rcon=true
   - name: "Download minecraft"
     get_url:
       url: https://launcher.mojang.com/v1/objects/ed76d597a44c5266be2a7fcd77a8270f1f0bc118/server.jar
