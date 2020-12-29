@@ -1,0 +1,40 @@
+---
+- hosts: all
+  tasks:
+  - name: "Install Java-openjdk11"
+    shell: amazon-linux-extras install java-openjdk11 -y
+  - name: "Install prerequisites."
+    yum:
+      name:
+        - java-1.8.0-openjdk
+        - wget
+        - python3.x86_64
+        - git
+      state: latest
+  - name: "Add default user game_admin"
+    shell: adduser game_admin
+  - name: "Making directory"
+    shell: mkdir -p /home/game_admin/server/logs
+  - name: "Create eula.txt"
+      copy:
+        dest: "/home/game_admin/server/eula.txt"
+        content: |
+          eula=true
+  - name: "Create eula.txt"
+      copy:
+        dest: "/home/game_admin/server/server.properties"
+        content: |
+          rcon.port=25575
+          rcon.password={{rcon_password}}
+          enable-rcon=true
+  - name: "Download minecraft"
+    get_url:
+      url: https://launcher.mojang.com/v1/objects/ed76d597a44c5266be2a7fcd77a8270f1f0bc118/server.jar
+      dest: /home/game_admin/server/server.jar
+      mode: '0750'
+      owner: game_admin
+  - name: "Add rcon port"
+    shell: chown game_admin:game_admin -R /home/game_admin/
+
+
+
