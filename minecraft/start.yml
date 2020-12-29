@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks:
+  - name: "Start Minecraft"
+    shell: nohup java -jar /home/game_admin/server/server.jar nogui &> /home/game_admin/server/logs/mine-console.log &
