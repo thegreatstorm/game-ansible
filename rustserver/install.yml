@@ -2,7 +2,12 @@
 - hosts: all
   tasks:
   - name: "Install prerequisites."
-    shell: yum install glibc.i686 libstdc++.i686 wget -y
+    yum:
+      name:
+        - glibc.i686
+        - libstdc++.i686
+        - wget
+      state: latest
   - name: "Add default user game_admin"
     shell: adduser game_admin
   - name: "Add default user game_admin"
