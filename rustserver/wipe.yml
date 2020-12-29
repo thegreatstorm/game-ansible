@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
   - name: "Stopping Rust Server!"
-    shell: pkill -f "RustDedicated"
+    shell: ps aux | grep -ie RustDedicated | awk '{print $2}' | xargs kill -9
   - name: "Wiping all server identities"
     shell: rm -rf /home/game_admin/server/server/*
   - name: "Starting Up Rust server"

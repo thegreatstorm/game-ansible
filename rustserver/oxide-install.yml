@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
   - name: "Stopping Rust Server!"
-    shell: pkill -f "RustDedicated"
+    shell: ps aux | grep -ie RustDedicated | awk '{print $2}' | xargs kill -9
   - name: "Download Oxide Installer"
     get_url:
       url: https://umod.org/games/rust/download/develop

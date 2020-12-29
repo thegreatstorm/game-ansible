@@ -2,4 +2,4 @@
 - hosts: all
   tasks:
   - name: "Stopping Rust Server!"
-    shell: pkill -f "RustDedicated"
+    shell: ps aux | grep -ie RustDedicated | awk '{print $2}' | xargs kill -9
