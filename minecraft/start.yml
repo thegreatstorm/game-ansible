@@ -4,4 +4,4 @@
   - name: "Start Minecraft"
     shell: runuser -l game_admin -c 'nohup java -Xmx{{max_memory}}M -Xms{{min_memory}}M -jar /home/game_admin/server/server.jar nogui &> /home/game_admin/server/logs/mine-console.log &'
     args:
-      chdir: /home/game_admin/server
+      chdir: /home/game_admin/server/
