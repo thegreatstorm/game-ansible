@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+  - name: "Add default user game_admin"
+    shell: ls -asl /home/game_admin/steam_install/./steamcmd.sh
+  - name: "Run to update game server"
+    shell: runuser -l game_admin -c '/home/game_admin/steam_install/./steamcmd.sh +login anonymous +force_install_dir /home/game_admin/server/ +app_update 258550 -validate +quit'
