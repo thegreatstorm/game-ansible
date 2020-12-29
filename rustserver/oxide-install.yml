@@ -1,0 +1,15 @@
+---
+- hosts: all
+  tasks:
+  - name: "Stopping Rust Server!"
+    shell: pkill -f "RustDedicated"
+  - name: "Download Oxide Installer"
+    get_url:
+      url: https://umod.org/games/rust/download/develop
+      dest: /home/game_admin/server/oxide_install.zip
+      mode: '0640'
+  - name: "Unarchive Oxide Installer"
+    unarchive:
+      src: /home/game_admin/server/oxide_install.zip
+      dest: /home/game_admin/server
+      remote_src: yes
