@@ -12,6 +12,6 @@
       dest: /home/game_admin/server
       remote_src: yes
   - name: "Change Permission"
-    shell: chmod 775 -R /home/game_admin/server/RustDedicated_Data/
+    shell: chmod 775 -R /home/game_admin/server/
   - name: "Change Ownership"
-    shell: chown game_admin:game_admin -R /home/game_admin/server/RustDedicated_Data/
+    shell: chown game_admin:game_admin -R /home/game_admin/server/
