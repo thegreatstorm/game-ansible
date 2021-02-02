@@ -24,5 +24,5 @@
     file:
       path: "{{app_dir}}/steam_install/steamcmd_linux.tar.gz"
       state: absent
-  - name: "Installing Rust Server"
-    shell: "{{app_dir}}/steam_install/./steamcmd.sh +login anonymous +force_install_dir {{app_dir}}/rustserver +app_update 258550 -validate +quit"
+  - name: "Installing Valheim Server"
+    shell: "{{app_dir}}/steam_install/./steamcmd.sh +login anonymous +force_install_dir {{app_dir}}/valheim +app_update 896660 -validate +quit"

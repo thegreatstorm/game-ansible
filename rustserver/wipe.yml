@@ -1,5 +1,0 @@
----
-- hosts: all
-  tasks:
-  - name: "Wiping all server identities"
-    shell: rm -rf /home/game_admin/server/server/*

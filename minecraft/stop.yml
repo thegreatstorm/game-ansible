@@ -2,4 +2,4 @@
 - hosts: all
   tasks:
   - name: "Stopping Minecraft Server!"
-    shell: ps aux | grep -ie server.jar | awk '{print $2}' | xargs kill -9
+    shell: ps aux | grep -ie "server.jar" | awk '{print $2}' | xargs kill -9

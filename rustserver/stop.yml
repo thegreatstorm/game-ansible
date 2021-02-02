@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
   tasks:
   - name: "Stopping Rust Server!"
-    shell: ps aux | grep -ie RustDedicated | awk '{print $2}' | xargs kill -9
+    shell: ps aux | grep -ie "{{identity}}" | grep -v grep | awk '{print $2}' | xargs kill -9

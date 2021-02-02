@@ -2,4 +2,4 @@
 - hosts: all
   tasks:
   - name: "Start Minecraft"
-    shell: runuser -l game_admin -c 'cd /home/game_admin/server/&& nohup java -Xmx{{max_memory}}M -Xms{{min_memory}}M -jar /home/game_admin/server/server.jar nogui &> /home/game_admin/server/logs/minecraft-console.log &'
+    shell: cd {{app_dir}}/server/&& nohup java -Xmx{{max_memory}}M -Xms{{min_memory}}M -jar {{app_dir}}/server/server.jar nogui &> {{app_dir}}/server/logs/minecraft-console.log &
