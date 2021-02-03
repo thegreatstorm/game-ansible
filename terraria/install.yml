@@ -22,7 +22,7 @@
   - name: "Download Terraria Server files 1.4.1.2"
     get_url:
       url: https://terraria.org/system/dedicated_servers/archives/000/000/042/original/terraria-server-1412.zip
-      dest: "{{app_dir}}/steam_install/terraria-server-1412.zip"
+      dest: "{{app_dir}}/terraria/terraria-server-1412.zip"
       mode: '0750'
   - name: "Unarchive Zip file"
     unarchive:
