@@ -14,6 +14,11 @@
       path: "{{app_dir}}/logs"
       state: directory
       mode: '0755'
+  - name: "Creating Configs folder"
+    file:
+      path: "{{app_dir}}/confs"
+      state: directory
+      mode: '0755'
   - name: "Creating a World Directory"
     file:
       path: "{{app_dir}}/worlds"
@@ -21,7 +26,7 @@
       mode: '0755'
   - name: "Create Config File: {{app_dir}}/terraria/terraria.txt"
     copy:
-      dest: "{{app_dir}}/terraria.txt"
+      dest: "{{app_dir}}/confs/terraria.txt"
       content: |
         autocreate=1
         worldname=Terraria
