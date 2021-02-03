@@ -56,3 +56,7 @@
     file:
       path: "{{app_dir}}/1412"
       state: absent
+  - name: "Making file executable: {{app_dir}}/terraria/TerrariaServer.bin.x86_64"
+    file:
+      path: "{{app_dir}}/terraria/TerrariaServer.bin.x86_64"
+      mode: '0711'
