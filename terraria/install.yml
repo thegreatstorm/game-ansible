@@ -25,4 +25,4 @@
       path: "{{app_dir}}/steam_install/steamcmd_linux.tar.gz"
       state: absent
   - name: "Installing Terraria Server"
-    shell: "{{app_dir}}/steam_install/./steamcmd.sh +login anonymous +force_install_dir {{app_dir}}/rustserver +app_update 105600 -validate +quit"
+    shell: "{{app_dir}}/steam_install/./steamcmd.sh +login anonymous +force_install_dir {{app_dir}}/terraria +app_update 105600 -validate +quit"
