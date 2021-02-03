@@ -9,8 +9,16 @@
         - wget
         - unzip
       state: latest
-  - name: "Making directory"
-    shell: mkdir -p {{app_dir}}/logs {{app_dir}}/steam_install
+  - name: "Creating Logs folder"
+    file:
+      path: "{{app_dir}}/logs"
+      state: directory
+      mode: '0755'
+  - name: "Creating a directory in {{app_dir}} called terraria"
+    file:
+      path: "{{app_dir}}/terraria"
+      state: directory
+      mode: '0755'
   - name: "Download Terraria Server files 1.4.1.2"
     get_url:
       url: https://terraria.org/system/dedicated_servers/archives/000/000/042/original/terraria-server-1412.zip
