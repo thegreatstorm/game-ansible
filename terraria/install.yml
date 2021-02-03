@@ -11,7 +11,7 @@
       state: latest
   - name: "Making directory"
     shell: mkdir -p {{app_dir}}/logs {{app_dir}}/steam_install
-  - name: "Download SteamCMD"
+  - name: "Download Terraria Server files 1.4.1.2"
     get_url:
       url: https://terraria.org/system/dedicated_servers/archives/000/000/042/original/terraria-server-1412.zip
       dest: "{{app_dir}}/steam_install/terraria-server-1412.zip"
@@ -21,7 +21,7 @@
       src: "{{app_dir}}/steam_install/terraria-server-1412.zip"
       dest: "{{app_dir}}/steam_install/"
       remote_src: yes
-  - name: "Remove steamcmd tar extraction no longer needed"
+  - name: "Remove Zip file no longer needed"
     file:
       path: "{{app_dir}}/steam_install/terraria-server-1412.zip"
       state: absent
