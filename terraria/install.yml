@@ -19,6 +19,11 @@
       path: "{{app_dir}}/terraria"
       state: directory
       mode: '0755'
+  - name: "Creating a World Directory"
+    file:
+      path: "{{app_dir}}/terraria/worlds"
+      state: directory
+      mode: '0755'
   - name: "Download Terraria Server files 1.4.1.2"
     get_url:
       url: https://terraria.org/system/dedicated_servers/archives/000/000/042/original/terraria-server-1412.zip
@@ -33,3 +38,15 @@
     file:
       path: "{{app_dir}}/terraria/terraria-server-1412.zip"
       state: absent
+  - name: "Create Config File: {{app_dir}}/terraria/terraria.txt"
+    copy:
+      dest: "{{app_dir}}/terraria/terraria.txt"
+      content: |
+        autocreate=1
+        worldname=Terraria
+        port=7777
+        password=p@55w0rd
+        worldpath={{app_dir}}/terraria/worlds
+        maxplayers=8
+        ip=0.0.0.0
+        seed=5162020
