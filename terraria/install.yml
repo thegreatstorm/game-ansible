@@ -46,7 +46,7 @@
       path: "{{app_dir}}/terraria-server-1412.zip"
       state: absent
   - name: "Copy Linux Directory"
-    command: "mv {{app_dir}}/terraria/1412/Linux {{app_dir}}/terraria"
+    command: "mv {{app_dir}}/1412/Linux {{app_dir}}/terraria"
   - name: "Remove unnecessary directories"
     file:
       path: "{{app_dir}}/1412"
