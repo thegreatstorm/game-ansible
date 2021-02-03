@@ -18,10 +18,10 @@
       mode: '0750'
   - name: "Unarchive Zip file"
     unarchive:
-      src: "{{app_dir}}/steam_install/terraria-server-1412.zip"
-      dest: "{{app_dir}}/steam_install/"
+      src: "{{app_dir}}/terraria/terraria-server-1412.zip"
+      dest: "{{app_dir}}/terraria/"
       remote_src: yes
   - name: "Remove Zip file no longer needed"
     file:
-      path: "{{app_dir}}/steam_install/terraria-server-1412.zip"
+      path: "{{app_dir}}/terraria/terraria-server-1412.zip"
       state: absent
