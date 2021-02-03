@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  tasks:
+  - name: "Install prerequisites."
+    yum:
+      name:
+        - glibc.i686
+        - libstdc++.i686
+        - wget
+      state: latest
+  - name: "Making directory"
+    shell: mkdir -p {{app_dir}}/logs {{app_dir}}/steam_install
+  - name: "Download SteamCMD"
+    get_url:
+      url: https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+      dest: "{{app_dir}}/steam_install/steamcmd_linux.tar.gz"
+      mode: '0750'
+  - name: "Unarchive SteamCMD"
+    unarchive:
+      src: "{{app_dir}}/steam_install/steamcmd_linux.tar.gz"
+      dest: "{{app_dir}}/steam_install/"
+      remote_src: yes
+  - name: "Remove steamcmd tar extraction no longer needed"
+    file:
+      path: "{{app_dir}}/steam_install/steamcmd_linux.tar.gz"
+      state: absent
+  - name: "Installing Terraria Server"
+    shell: "{{app_dir}}/steam_install/./steamcmd.sh +login anonymous +force_install_dir {{app_dir}}/rustserver +app_update 105600 -validate +quit"
