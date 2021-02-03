@@ -7,22 +7,21 @@
         - glibc.i686
         - libstdc++.i686
         - wget
+        - unzip
       state: latest
   - name: "Making directory"
     shell: mkdir -p {{app_dir}}/logs {{app_dir}}/steam_install
   - name: "Download SteamCMD"
     get_url:
-      url: https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
-      dest: "{{app_dir}}/steam_install/steamcmd_linux.tar.gz"
+      url: https://terraria.org/system/dedicated_servers/archives/000/000/042/original/terraria-server-1412.zip
+      dest: "{{app_dir}}/steam_install/terraria-server-1412.zip"
       mode: '0750'
-  - name: "Unarchive SteamCMD"
+  - name: "Unarchive Zip file"
     unarchive:
-      src: "{{app_dir}}/steam_install/steamcmd_linux.tar.gz"
+      src: "{{app_dir}}/steam_install/terraria-server-1412.zip"
       dest: "{{app_dir}}/steam_install/"
       remote_src: yes
   - name: "Remove steamcmd tar extraction no longer needed"
     file:
-      path: "{{app_dir}}/steam_install/steamcmd_linux.tar.gz"
+      path: "{{app_dir}}/steam_install/terraria-server-1412.zip"
       state: absent
-  - name: "Installing Terraria Server"
-    shell: "{{app_dir}}/steam_install/./steamcmd.sh +login anonymous +force_install_dir {{app_dir}}/terraria +app_update 105600 -validate +quit"
