@@ -14,39 +14,40 @@
       path: "{{app_dir}}/logs"
       state: directory
       mode: '0755'
-  - name: "Creating a directory in {{app_dir}} called terraria"
-    file:
-      path: "{{app_dir}}/terraria"
-      state: directory
-      mode: '0755'
   - name: "Creating a World Directory"
     file:
-      path: "{{app_dir}}/terraria/worlds"
+      path: "{{app_dir}}/worlds"
       state: directory
       mode: '0755'
-  - name: "Download Terraria Server files 1.4.1.2"
-    get_url:
-      url: https://terraria.org/system/dedicated_servers/archives/000/000/042/original/terraria-server-1412.zip
-      dest: "{{app_dir}}/terraria/terraria-server-1412.zip"
-      mode: '0750'
-  - name: "Unarchive Zip file"
-    unarchive:
-      src: "{{app_dir}}/terraria/terraria-server-1412.zip"
-      dest: "{{app_dir}}/terraria/"
-      remote_src: yes
-  - name: "Remove Zip file no longer needed"
-    file:
-      path: "{{app_dir}}/terraria/terraria-server-1412.zip"
-      state: absent
   - name: "Create Config File: {{app_dir}}/terraria/terraria.txt"
     copy:
-      dest: "{{app_dir}}/terraria/terraria.txt"
+      dest: "{{app_dir}}/terraria.txt"
       content: |
         autocreate=1
         worldname=Terraria
         port=7777
         password=p@55w0rd
-        worldpath={{app_dir}}/terraria/worlds
+        worldpath={{app_dir}}/worlds
         maxplayers=8
         ip=0.0.0.0
         seed=5162020
+  - name: "Download Terraria Server files 1.4.1.2"
+    get_url:
+      url: https://terraria.org/system/dedicated_servers/archives/000/000/042/original/terraria-server-1412.zip
+      dest: "{{app_dir}}/terraria-server-1412.zip"
+      mode: '0750'
+  - name: "Unarchive Zip file"
+    unarchive:
+      src: "{{app_dir}}/terraria-server-1412.zip"
+      dest: "{{app_dir}}/"
+      remote_src: yes
+  - name: "Remove Zip file no longer needed"
+    file:
+      path: "{{app_dir}}/terraria-server-1412.zip"
+      state: absent
+  - name: "Copy Linux Directory"
+    command: "mv {{app_dir}}/terraria/1412/Linux {{app_dir}}/terraria"
+  - name: "Remove unnecessary directories"
+    file:
+      path: "{{app_dir}}/1412"
+      state: absent
