@@ -1,0 +1,5 @@
+---
+- hosts: localhost
+  tasks:
+  - name: "Stopping Valheim Server!"
+    shell: ps aux | grep -ie "valheim_server.x86_64" | grep -v grep | awk '{print $2}' | xargs kill -9

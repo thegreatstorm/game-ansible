@@ -8,8 +8,12 @@ If your following commands documentation keep in mind we utilize `/opt/server` i
   * `ansible-playbook game-ansible/valheim/install.yml --extra-vars '{"app_dir":"/opt/server"}'`
 * start.yml
   * `ansible-playbook start.yml --extra-vars '{"app_dir":"/opt/server","name":"ServerName","world":"Dedicated","public":"1","password":"secret", "port":"2456""}'`
+* stop.yml
+  * `ansible-playbook stop.yml`
 
 ## Notes
-* Issues with Password and Server staying up
-  * `If you leave the password empty or remove it from the start up command it causes the server to crash`
+* `-public 0` to have no password server, `-public 1` to have a required password server
+  * Make sure if you want a public open server, to make `-public 0` and `-password ""`
+  * If you use `-public 1` make sure `-password` isn't empty or else you will get a threaded error.
 * I believe the query port to find on steam is +1 from standard port given. This needs to be checked.
+* Threaded error happens if you don't have proper environment variables.
