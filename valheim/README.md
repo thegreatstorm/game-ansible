@@ -7,7 +7,7 @@ If your following commands documentation keep in mind we utilize `/opt/server` i
 * install.yml
   * `ansible-playbook game-ansible/valheim/install.yml --extra-vars '{"app_dir":"/opt/server"}'`
 * start.yml
-  * `ansible-playbook start.yml --extra-vars '{"app_dir":"/opt/server","name":"ServerName","world":"Dedicated","public":"1","password":"secret", "port":"2456""}'`
+  * `ansible-playbook start.yml --extra-vars '{"app_dir":"/opt/server","name":"ServerName","world":"Dedicated","public":"1","password":"secret", "port":"2456"}'`
 * stop.yml
   * `ansible-playbook stop.yml`
 
