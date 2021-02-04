@@ -1,17 +1,9 @@
 ---
 - hosts: localhost
   tasks:
-  - name: "Setting env: templdpath"
-    shell: "echo $templdpath"
-    environment:
-      templdpath: "$LD_LIBRARY_PATH"
-  - name: "Setting env: LD_LIBRARY_PATH"
-    shell: "echo $LD_LIBRARY_PATH"
-    environment:
-      LD_LIBRARY_PATH: "{{app_dir}}/valheim/linux64:$LD_LIBRARY_PATH"
-  - name: "Setting env: SteamAppId"
-    shell: "echo $SteamAppId"
-    environment:
-      SteamAppId: "892970"
   - name: "Starting Server Check Log: {{app_dir}}/logs/valheim-services.log"
     shell: cd {{app_dir}}/valheim/ && nohup ./valheim_server.x86_64 -nographics -batchmode -name "{{name}}" -port {{port}} -world "{{world}}" -password "{{password}}" -public {{public}} &> {{app_dir}}/logs/valheim-services.log &
+    environment:
+      templdpath: "$LD_LIBRARY_PATH"
+      LD_LIBRARY_PATH: "{{app_dir}}/valheim/linux64:$LD_LIBRARY_PATH"
+      SteamAppId: "892970"
