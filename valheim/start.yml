@@ -2,9 +2,9 @@
 - hosts: localhost
   tasks:
   - name: "Setting env: templdpath"
-    shell: export templdpath=\$LD_LIBRARY_PATH
+    shell: export templdpath=$LD_LIBRARY_PATH
   - name: "Setting env: LD_LIBRARY_PATH"
-    shell: export LD_LIBRARY_PATH={{app_dir}}/valheim/linux64:\$LD_LIBRARY_PATH
+    shell: "export LD_LIBRARY_PATH={{app_dir}}/valheim/linux64:$LD_LIBRARY_PATH"
   - name: "Setting env: SteamAppId"
     shell: export SteamAppId=892970
   - name: "Starting Server Check Log: {{app_dir}}/logs/valheim-services.log"
