@@ -7,5 +7,8 @@
     shell: "export LD_LIBRARY_PATH={{app_dir}}/valheim/linux64:$LD_LIBRARY_PATH"
   - name: "Setting env: SteamAppId"
     shell: export SteamAppId=892970
+  - name: "Debugging Environment Variable"
+    environment:
+      server: "Valheim"
   - name: "Starting Server Check Log: {{app_dir}}/logs/valheim-services.log"
     shell: cd {{app_dir}}/valheim/ && nohup ./valheim_server.x86_64 -nographics -batchmode -name "{{name}}" -port {{port}} -world "{{world}}" -password "{{password}}" -public {{public}} &> {{app_dir}}/logs/valheim-services.log &
