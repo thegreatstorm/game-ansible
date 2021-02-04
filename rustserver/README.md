@@ -1,4 +1,4 @@
-# Rust Server Playbook
+<img src="https://cdn.akamai.steamstatic.com/steam/apps/252490/header.jpg"/>
 
 ## Active Playbooks
 * install.yml
