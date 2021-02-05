@@ -3,6 +3,13 @@
 ## Documentation by TheGreatStorm
 If your following commands documentation keep in mind we utilize `/opt/server` in the examples make sure this directory exists in your box if you are copy pasting.
 
+## Prerequisites
+* Centos 8
+    * `sudo yum install epel-release -y`
+    * `sudo yum install git ansible python38.x86_64 glibc.i686 libstdc++.i686 wget -y`
+* Ubuntu 64-bit
+    * `sudo dpkg --add-architecture i386; sudo apt update; sudo apt install wget tar netcat lib32gcc1 lib32stdc++6 steamcmd lib32z1`
+
 ## Commands
 * install.yml
   * `ansible-playbook install.yml --extra-vars '{"app_dir":"/opt/server"}'`
@@ -22,3 +29,5 @@ If your following commands documentation keep in mind we utilize `/opt/server` i
 * I believe the query port to find on steam is +1 from standard port given. This needs to be checked.
 * Threaded error happens if you don't have proper environment variables.
 * If your going to update your valheim server make sure you run stop.yml first before doing update.yml
+
+

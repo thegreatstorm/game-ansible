@@ -7,3 +7,4 @@ Want to learn how to setup game servers? I can help!
   * `mkdir /opt/server` 
 * Run install for game server
   * `ansible-playbook <gameserver>/install.yml --extra-vars '{"app_dir":"/opt/server"}'`
+
