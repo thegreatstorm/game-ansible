@@ -23,9 +23,10 @@ If your following commands documentation keep in mind we utilize `/opt/server` i
   * `ansible-playbook update.yml --extra-vars '{"app_dir":"/opt/server"}'`
 
 ## Notes
-* `-public 0` to have no password server, `-public 1` to have a required password server
+* <del>`-public 0` to have no password server, `-public 1` to have a required password server
   * Make sure if you want a public open server, to make `-public 0` and `-password ""`
-  * If you use `-public 1` make sure `-password` isn't empty or else you will get a threaded error.
+  * If you use `-public 1` make sure `-password` isn't empty or else you will get a threaded error.</del>
+* Public Servers are currently not avaliable.
 * I believe the query port to find on steam is +1 from standard port given. This needs to be checked.
 * Threaded error happens if you don't have proper environment variables.
 * If your going to update your valheim server make sure you run stop.yml first before doing update.yml
