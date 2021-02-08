@@ -4,8 +4,8 @@
     - name: "Stopping Valheim Server!"
       shell: ps aux | grep -ie "valheim_server.x86_64" | grep -v grep | awk '{print $2}' | xargs kill -9
     - name: "Starting Server Check Log: {{app_dir}}/logs/valheim-services.log"
-    shell: cd {{app_dir}}/valheim/ && nohup ./valheim_server.x86_64 -nographics -batchmode -name "{{name}}" -port {{port}} -world "{{world}}" -password "{{password}}" -public {{public}} &> {{app_dir}}/logs/valheim-services.log &
-    environment:
-      templdpath: "$LD_LIBRARY_PATH"
-      LD_LIBRARY_PATH: "{{app_dir}}/valheim/linux64:$LD_LIBRARY_PATH"
-      SteamAppId: "892970"
+      shell: cd {{app_dir}}/valheim/ && nohup ./valheim_server.x86_64 -nographics -batchmode -name "{{name}}" -port {{port}} -world "{{world}}" -password "{{password}}" -public {{public}} &> {{app_dir}}/logs/valheim-services.log &
+      environment:
+        templdpath: "$LD_LIBRARY_PATH"
+        LD_LIBRARY_PATH: "{{app_dir}}/valheim/linux64:$LD_LIBRARY_PATH"
+        SteamAppId: "892970"
