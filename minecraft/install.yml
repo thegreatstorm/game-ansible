@@ -18,9 +18,10 @@
     copy:
       dest: "{{app_dir}}/server/server.properties"
       content: |
-        rcon.port={{rcon_password}}
+        server-port=25565
+        rcon.port=25575
         query.port=25565
-        rcon.password={{rcon_password}}
+        rcon.password=25575
         enable-rcon=true
         level-name=world
         motd=Minecraft Server
