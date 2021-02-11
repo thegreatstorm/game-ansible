@@ -6,7 +6,6 @@
       name:
         - java-1.8.0-openjdk
         - wget
-        - python3.x86_64
       state: latest
   - name: "Making directory"
     shell: "mkdir -p {{app_dir}}/server/logs"
