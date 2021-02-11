@@ -8,15 +8,15 @@
         - wget
       state: latest
   - name: "Making directory"
-    shell: "mkdir -p {{app_dir}}/server/logs"
+    shell: "mkdir -p {{app_dir}}/logs"
   - name: "Create eula.txt"
     copy:
-      dest: "{{app_dir}}/server/eula.txt"
+      dest: "{{app_dir}}/eula.txt"
       content: |
         eula=true
   - name: "Create eula.txt"
     copy:
-      dest: "{{app_dir}}/server/server.properties"
+      dest: "{{app_dir}}/server.properties"
       content: |
         server-port=25565
         rcon.port=25575
@@ -30,7 +30,7 @@
   - name: "Download minecraft"
     get_url:
       url: https://launcher.mojang.com/v1/objects/ed76d597a44c5266be2a7fcd77a8270f1f0bc118/server.jar
-      dest: "{{app_dir}}/server/server.jar"
+      dest: "{{app_dir}}/server.jar"
       mode: '0750'
 
 
