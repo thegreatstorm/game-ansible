@@ -11,12 +11,12 @@
     shell: "mkdir -p {{app_dir}}/logs"
   - name: "Create eula.txt"
     copy:
-      dest: "{{app_dir}}/eula.txt"
+      dest: "{{app_dir}}/minecraft/eula.txt"
       content: |
         eula=true
   - name: "Create eula.txt"
     copy:
-      dest: "{{app_dir}}/server.properties"
+      dest: "{{app_dir}}/minecraft/server.properties"
       content: |
         server-port=25565
         rcon.port=25575
@@ -30,7 +30,7 @@
   - name: "Download minecraft"
     get_url:
       url: https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
-      dest: "{{app_dir}}/server.jar"
+      dest: "{{app_dir}}/minecraft/server.jar"
       mode: '0750'
 
 
