@@ -20,8 +20,13 @@
       dest: "{{app_dir}}/server/server.properties"
       content: |
         rcon.port={{rcon_password}}
+        query.port=25565
         rcon.password={{rcon_password}}
         enable-rcon=true
+        level-name=world
+        motd=Minecraft Server
+        max-players=20
+        level-seed=55
   - name: "Download minecraft"
     get_url:
       url: https://launcher.mojang.com/v1/objects/ed76d597a44c5266be2a7fcd77a8270f1f0bc118/server.jar
