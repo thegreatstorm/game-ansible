@@ -19,3 +19,10 @@ If your following commands documentation keep in mind we utilize `/opt/server` i
   * `ansible-playbook start.yml --extra-vars '{"app_dir":"/opt/server","max_memory":"1512","min_memory":"512"}'`
 * update.yml -- Look at notes for more info before running.
   * `ansible-playbook update.yml --extra-vars '{"app_dir":"/opt/server"}'`
+  
+  
+## Notes
+* Change Configurations
+    * Look for minecraft folder and edit the server.properties.
+* Bedrock Edition
+    * Just do the ports for bedrock in server.properties.
