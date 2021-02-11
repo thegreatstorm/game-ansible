@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  tasks:
+    - name: "Remove Minecraft old file"
+      shell: "rm -rf {{app_dir}}/server.jar"
+  - name: "Download minecraft"
+    get_url:
+      url: https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
+      dest: "{{app_dir}}/server.jar"
+      mode: '0750'
+
+
+
