@@ -1,14 +1,6 @@
 ---
 - hosts: localhost
   tasks:
-  - name: "Install prerequisites."
-    yum:
-      name:
-        - glibc.i686
-        - libstdc++.i686
-        - wget
-        - unzip
-      state: latest
   - name: "Creating Logs folder"
     file:
       path: "{{app_dir}}/logs"
