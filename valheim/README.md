@@ -30,5 +30,27 @@ If your following commands documentation keep in mind we utilize `/opt/server` i
 * I believe the query port to find on steam is +1 from standard port given. This needs to be checked.
 * Threaded error happens if you don't have proper environment variables.
 * If your going to update your valheim server make sure you run stop.yml first before doing update.yml
-
-
+* How to make systemd service
+  * Helped by gelbbauch
+  * ``` cat << EOF > /etc/systemd/system/valheim.service
+    [Unit]
+    Description=Valheim game server
+    
+    [Service]
+    Type=forking
+    ExecStart=/usr/bin/ansible-playbook /opt/server/game-ansible/valheim/start.yml --extra-vars '{"app_dir":"/opt/server","name":"Wastaken","world":"Dedicated","public":"1","password":"4Valhalla!", "port":"2456"}'
+    ExecStop=/usr/bin/ansible-playbook /opt/server/game-ansible/valheim/stop.yml
+    Type=oneshot
+    RemainAfterExit=yes
+    
+    [Install]
+    WantedBy=multi-user.target
+    EOF`
+    
+    then:
+    
+    systemctl daemon-reload
+    
+    and
+    
+    systemctl enable --now valheim.service```
