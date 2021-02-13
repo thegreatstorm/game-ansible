@@ -6,7 +6,7 @@ If your following commands documentation keep in mind we utilize `/opt/server` i
 ## Prerequisites
 * Centos 8
     * `sudo yum install epel-release -y`
-    * `sudo yum install git ansible python38.x86_64 glibc.i686 libstdc++.i686 wget -y`
+    * `sudo yum install git ansible glibc.i686 libstdc++.i686 wget -y`
 * Ubuntu 64-bit
     * `sudo dpkg --add-architecture i386; sudo apt update; sudo apt install wget tar netcat lib32gcc1 lib32stdc++6 steamcmd lib32z1`
 
