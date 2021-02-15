@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+  - name: "Install prerequisites."
+    yum:
+      name:
+        - glibc.i686
+        - libstdc++.i686
+        - wget
+      state: latest
