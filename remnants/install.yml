@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  tasks:
+  - name: "Making directory"
+    shell: mkdir -p {{app_dir}}/logs {{app_dir}}/steam_install
+  - name: "Download SteamCMD"
+    get_url:
+      url: https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+      dest: "{{app_dir}}/steam_install/steamcmd_linux.tar.gz"
+      mode: '0750'
+  - name: "Unarchive SteamCMD"
+    unarchive:
+      src: "{{app_dir}}/steam_install/steamcmd_linux.tar.gz"
+      dest: "{{app_dir}}/steam_install/"
+      remote_src: yes
+  - name: "Remove steamcmd tar extraction no longer needed"
+    file:
+      path: "{{app_dir}}/steam_install/steamcmd_linux.tar.gz"
+      state: absent
+  - name: "Installing Remnants Server"
+    shell: "{{app_dir}}/steam_install/./steamcmd.sh +login anonymous +force_install_dir {{app_dir}}/remnants +app_update 1141420 -validate +quit"
