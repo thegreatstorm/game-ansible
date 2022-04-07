@@ -1,14 +1,8 @@
 ---
 - hosts: localhost
   tasks:
-  - name: "Install prerequisites."
-    yum:
-      name:
-        - java-1.8.0-openjdk
-        - wget
-      state: latest
   - name: "Making directory"
-    shell: "mkdir -p {{app_dir}}/logs"
+    shell: "mkdir -p {{app_dir}}/logs {{app_dir}}/minecraft"
   - name: "Create eula.txt"
     copy:
       dest: "{{app_dir}}/minecraft/eula.txt"
@@ -18,18 +12,18 @@
     copy:
       dest: "{{app_dir}}/minecraft/server.properties"
       content: |
-        server-port=25565
-        rcon.port=25575
-        query.port=25565
-        rcon.password=25575
+        server-port=3074
+        rcon.port=8080
+        query.port=3074
+        rcon.password=Crafter9000
         enable-rcon=true
         level-name=world
-        motd=Minecraft Server
+        motd=Welcome to TheGreatSt0rm Git Automated Server!
         max-players=20
-        level-seed=55
-  - name: "Download minecraft"
+        level-seed=2976643220357667859
+  - name: "Downloading minecraft"
     get_url:
-      url: https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
+      url: https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar
       dest: "{{app_dir}}/minecraft/server.jar"
       mode: '0750'
 

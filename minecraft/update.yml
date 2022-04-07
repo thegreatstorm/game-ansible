@@ -3,9 +3,9 @@
   tasks:
   - name: "Remove Minecraft old file"
     shell: "rm -rf {{app_dir}}/minecraft/server.jar"
-  - name: "Download minecraft"
+  - name: "Reinstalling minecraft"
     get_url:
-      url: https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
+      url: https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar
       dest: "{{app_dir}}/minecraft/server.jar"
       mode: '0750'
 

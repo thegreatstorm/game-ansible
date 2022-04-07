@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
   tasks:
-  - name: "Start Minecraft"
-    shell: cd {{app_dir}}/minecraft/ && nohup java -Xmx{{max_memory}}M -Xms{{min_memory}}M -jar {{app_dir}}/minecraft/server.jar --nogui &> {{app_dir}}/logs/minecraft-console.log &
+  - name: "Start Minecraft :: Log: {{app_dir}}/logs/minecraft-console.log"
+    shell: cd {{app_dir}}/minecraft/ && nohup java -Xmx{{max_memory}}M -Xms{{min_memory}}M -jar {{app_dir}}/minecraft/server.jar --nogui >> {{app_dir}}/logs/minecraft-console.log 2>&1&
+

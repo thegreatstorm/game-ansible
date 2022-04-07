@@ -1,5 +1,6 @@
 <img src="https://www.logaster.com/blog/wp-content/uploads/2020/06/image14-3.png" alt="My cool logo"/>
 
+# Current Minecraft Version Supported 1.18.2
 ## Documentation by TheGreatStorm
 If your following commands documentation keep in mind we utilize `/opt/server` in the examples make sure this directory exists in your box if you are copy pasting.
 
